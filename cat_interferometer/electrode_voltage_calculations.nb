@@ -1,0 +1,305 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     11289,        297]
+NotebookOptionsPosition[     10554,        275]
+NotebookOutlinePosition[     10985,        292]
+CellTagsIndexPosition[     10942,        289]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"MHz", " ", "=", " ", 
+   SuperscriptBox["10", "6"]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"pF", " ", "=", " ", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "12"}]]}], ";"}]}], "Code",
+ CellChangeTimes->{{4.0010765078207283`*^9, 4.0010765250311203`*^9}, {
+   4.001076561138296*^9, 4.001076566627037*^9}, 4.0010766931806393`*^9, {
+   4.001076777856251*^9, 4.001076787585531*^9}, {4.001077560201748*^9, 
+   4.001077567227751*^9}, {4.001077798902588*^9, 4.001077799018444*^9}, {
+   4.001087985415287*^9, 4.001088001007536*^9}, {4.001088307911249*^9, 
+   4.0010883594142647`*^9}, 4.001088412856802*^9, {4.001088489132986*^9, 
+   4.0010885330544815`*^9}, {4.001089083516737*^9, 4.001089089112629*^9}},
+ CellLabel->
+  "In[193]:=",ExpressionUUID->"48a810ec-d243-d144-84fa-bd9c349f2bab"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "See", " ", "below", " ", "link", " ", "for", " ", "definitions", " ", 
+    "of", " ", "AC", " ", "power"}], "*)"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "they", " ", "use", " ", "V0", " ", "which", " ", "is", " ", "peak", " ", 
+     "voltage", " ", "but", " ", "we", " ", "measure", " ", "V", " ", "peak", 
+     " ", "to", " ", "peak", " ", 
+     RowBox[{"(", "Vpp", ")"}]}], ",", " ", 
+    RowBox[{
+     RowBox[{"i", ".", "e", ".", " ", "Vpp"}], " ", "=", " ", 
+     RowBox[{"2", "*", "V0"}]}]}], "*)"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{"Thus", " ", 
+    SubscriptBox["V", "rms"], " ", "is", " ", 
+    RowBox[{"Vpp", " ", "/", " ", 
+     RowBox[{"(", 
+      RowBox[{"2", "*", 
+       RowBox[{"Sqrt", "[", "2", "]"}]}], ")"}]}]}], " ", "*)"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"https", ":"}], "//", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"phys", ".", "libretexts", ".", "org"}], "/", 
+         "Bookshelves"}], "/", "University_Physics"}], "/", 
+       "University_Physics"}], "_", 
+      RowBox[{
+       RowBox[{"(", "OpenStax", ")"}], "/", "University_Physics"}], "_II", 
+      "_"}], "-", 
+     RowBox[{"_Thermodynamics", "_Electricity", "_and", "_Magnetism", "_", 
+      RowBox[{
+       RowBox[{"(", "OpenStax", ")"}], "/", "15"}], "%3", "A_Alternating"}], "-", 
+     RowBox[{
+      RowBox[{"Current_Circuits", "/", "15.05"}], "%3", "A_Power", "_in", 
+      "_an", "_AC", "_Circuit"}]}]}], "*)"}], "\n", "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"VppMeasured", "  ", "=", " ", ".0225"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"peak", "-", 
+     RowBox[{
+     "peak", " ", "voltage", " ", "measured", " ", "on", " ", "oscillscope", " ",
+       "from", " ", "CPL", " ", "port", " ", "of", " ", "ZFDC"}], "-", "20", "-",
+      "5", "+", " ", "coupler"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"VrmsMeasured", " ", "=", " ", 
+     FractionBox["VppMeasured", 
+      RowBox[{"2", "*", 
+       RowBox[{"Sqrt", "[", "2", "]"}]}]]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"PMeasured", " ", "=", " ", 
+     FractionBox[
+      SuperscriptBox["VrmsMeasured", "2"], "50"]}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "oscilloscope", " ", "was", " ", "50", " ", "ohm", " ", "terminate", " ", 
+     "via", " ", "BNC", " ", "tee", " ", "so", " ", "convert", " ", "to", " ",
+      "power"}], "*)"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"capacitances", " ", "quoted", " ", "in", " ", 
+     RowBox[{"Grant", "'"}], "s", " ", "thesis"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"Ctrap", " ", "=", " ", 
+     RowBox[{"36", "*", "pF"}]}], ";"}], " ", "\n", 
+   RowBox[{
+    RowBox[{"ChelRes", " ", "=", " ", 
+     RowBox[{"4", "*", "pF"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Ceff", " ", "=", " ", 
+     RowBox[{"Ctrap", " ", "+", " ", "ChelRes"}]}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "assume", " ", "capacitors", " ", "are", " ", "in", " ", "parrallel"}], 
+     " ", "-", " ", 
+     RowBox[{"fits", " ", "Sirvens", " ", "fig", " ", "6", "a"}]}], "*)"}], 
+   "\n", "\n", "\n", 
+   RowBox[{
+    RowBox[{"\[CapitalOmega]RF", " ", "=", " ", 
+     RowBox[{"2", "*", "\[Pi]", "*", "19.0824", "*", "MHz"}]}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{"rf", " ", "trap", " ", "drive", " ", "frequency"}], "*)"}], "\n",
+    "\n", 
+   RowBox[{
+    RowBox[{"Q", " ", "=", " ", 
+     RowBox[{"105", "*", "2"}]}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "quality", " ", "factor", " ", "of", " ", "helical", " ", "resonator"}], 
+     " ", "-", " ", 
+     RowBox[{"see", " ", "notes", " ", "on", " ", 
+      RowBox[{
+       RowBox[{"10", "/", "15"}], "/", "2026"}]}], " ", "-", " ", 
+     RowBox[{
+     "chat", " ", "gpt", " ", "says", " ", "double", " ", "value", " ", 
+      "from", " ", "network", " ", "analyzer", " ", "look", " ", "into", " ", 
+      "this"}]}], "*)"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"attBeforeSpecAnalDb", " ", "=", " ", 
+     RowBox[{"-", "34"}]}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "34", " ", "db", " ", "of", " ", "attenuation", " ", "was", " ", "placed",
+      " ", "before", " ", "the", " ", "input", " ", "to", " ", "the", " ", 
+     "oscilloscope", " ", "and", " ", "the", " ", "50", " ", "ohm", " ", 
+     "terminator"}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"couplingFactor", " ", "=", " ", 
+     RowBox[{"-", " ", "19.5"}]}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"coupling", " ", "factor", " ", "of", " ", "ZFDC"}], "-", "20", "-",
+      "5", "+"}], "*)"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"PintoCoupler", " ", "=", " ", 
+     RowBox[{"PMeasured", "*", 
+      SuperscriptBox["10", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"(", 
+          RowBox[{"attBeforeSpecAnalDb", "+", "couplingFactor"}], ")"}]}], "/",
+         "10"}]]}]}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"use", " ", "formula", " ", "decibel"}], " ", "=", " ", 
+     RowBox[{"10", "*", "log10", 
+      RowBox[{"(", 
+       RowBox[{"P_", 
+        RowBox[{
+         RowBox[{"{", "out", "}"}], "/", "P_"}], 
+        RowBox[{"{", "in", "}"}]}]}]}]}], "*)"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"attBeforeCoupler", " ", "=", " ", 
+     RowBox[{"-", "8"}]}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "8", "db", " ", "of", " ", "attenuation", " ", "was", " ", "placed", " ",
+       "between", " ", "the", " ", "RF", " ", "cable", " ", "and", " ", "the",
+       " ", "IN", " ", "port", " ", "of", " ", "the", " ", "ZFDC"}], "-", 
+     "20", "-", "5", "+"}], " ", "*)"}], " ", "\n", 
+   RowBox[{
+    RowBox[{"PoutOfBoard", " ", "=", " ", 
+     RowBox[{"PintoCoupler", "*", 
+      SuperscriptBox["10", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"(", "attBeforeCoupler", ")"}]}], "/", "10"}]]}]}], ";"}], 
+   "\n", "\n", 
+   RowBox[{
+    RowBox[{"Vp", " ", "=", " ", 
+     RowBox[{"Sqrt", "[", 
+      FractionBox[
+       RowBox[{"2", "*", "PoutOfBoard", "*", "Q"}], 
+       RowBox[{"Ceff", "*", "\[CapitalOmega]RF"}]], "]"}]}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"From", " ", "Sirvens", " ", "paper"}], " ", "-", " ", 
+       RowBox[{"https", ":"}]}], "//", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"www", ".", "sussex", ".", "ac", ".", "uk"}], "/", 
+          "physics"}], "/", "iqt"}], "/", "11065013"}], 
+       RowBox[{"v3", ".", 
+        RowBox[{"pdf", "?"}], ".", " ", "Rearange"}], " ", "eqn", " ", "6", " ",
+        "via", " ", "formula", " ", "for", " ", "\[Kappa]"}]}], " ", "=", " ", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         FractionBox["L", "C"], ")"}], 
+        RowBox[{"1", "/", "4"}]], " ", "and", " ", 
+       SubscriptBox["\[Omega]", "0"]}], "=", 
+      FractionBox["1", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"L", "*", "C"}], "]"}]]}]}], "*)"}], "\n", 
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<The power into the helical resonator is: \>\"", ",", " ", 
+     "PoutOfBoard", ",", " ", "\"\< W\>\""}], "]"}], "\n", 
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<The predicted RF peak voltage is: \>\"", ",", " ", "Vp", ",",
+      " ", "\"\< V\>\""}], "]"}]}]}]], "Code",
+ CellChangeTimes->{{4.0010885252046185`*^9, 4.0010885367894535`*^9}, {
+  4.001088769264885*^9, 4.0010888265468006`*^9}, {4.001088892657156*^9, 
+  4.0010889509367065`*^9}, {4.001088999613228*^9, 4.001089493731924*^9}, {
+  4.0010895271317863`*^9, 4.001089633331703*^9}, {4.0010898827991257`*^9, 
+  4.0010899299823704`*^9}, {4.001089972782564*^9, 4.0010899850531464`*^9}, {
+  4.001090931645735*^9, 4.001090931815796*^9}, {4.0010929778146076`*^9, 
+  4.0010929810365753`*^9}, {4.0010936029992065`*^9, 4.0010936037160053`*^9}, {
+  4.0011013975963745`*^9, 4.0011014609904537`*^9}, {4.001101624504265*^9, 
+  4.0011016597922363`*^9}},ExpressionUUID->"978aeba5-c230-9644-8609-\
+8e9a74eaf894"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The power into the helical resonator is: \"\>", "\[InvisibleSpace]",
+    "1.7877428299131761`", "\[InvisibleSpace]", "\<\" W\"\>"}],
+  SequenceForm[
+  "The power into the helical resonator is: ", 1.7877428299131761`, " W"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{4.001101424325918*^9, 4.0011014619074306`*^9}, {
+  4.0011016289377975`*^9, 4.0011016528445625`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[443]:=",ExpressionUUID->"cd4a67dc-1560-0440-a7c7-1a991bc18769"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The predicted RF peak voltage is: \"\>", "\[InvisibleSpace]", 
+   "395.6769398545307`", "\[InvisibleSpace]", "\<\" V\"\>"}],
+  SequenceForm["The predicted RF peak voltage is: ", 395.6769398545307, " V"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{4.001101424325918*^9, 4.0011014619074306`*^9}, {
+  4.0011016289377975`*^9, 4.0011016528463078`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[443]:=",ExpressionUUID->"766df062-3eed-1d4b-9823-02fd2912dbe9"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1440, 747.75},
+WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+Magnification:>1.1 Inherited,
+FrontEndVersion->"15.0 for Microsoft Windows (64-bit) (July 2, 2026)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"d3658551-6816-eb42-9bd1-26a1f2e6232f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 810, 16, 74, "Code",ExpressionUUID->"48a810ec-d243-d144-84fa-bd9c349f2bab"],
+Cell[CellGroupData[{
+Cell[1389, 40, 8071, 204, 684, "Code",ExpressionUUID->"978aeba5-c230-9644-8609-8e9a74eaf894"],
+Cell[CellGroupData[{
+Cell[9485, 248, 529, 11, 24, "Print",ExpressionUUID->"cd4a67dc-1560-0440-a7c7-1a991bc18769"],
+Cell[10017, 261, 509, 10, 24, "Print",ExpressionUUID->"766df062-3eed-1d4b-9823-02fd2912dbe9"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
